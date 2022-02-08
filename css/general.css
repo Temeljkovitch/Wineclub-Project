@@ -1,0 +1,312 @@
+/*
+--- 01 Typography System
+
+-- Font sizes (px):
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-- Spacing system (px):
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+-- Font weights:
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+-- Line heights:
+Default: 1
+Small: 1.05
+Medium: 1.2
+Paragraph default: 1.6
+Large: 1.8
+
+-- Letter Spacing:
+-0.5px
+0.75px
+
+--- 02 Colors
+
+-- Primary:
+#530f27
+
+-- Tints:
+#fff4e6
+#64122e
+#a61e4d
+
+-- Shades:
+#320917
+
+
+-- Accents
+
+--- 03 Shadows:
+box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+
+--- 04 Border Radius
+Default: 0.9rem
+Medium: 1.1rem
+
+--- 05 Whitespace
+*/
+
+/* Global reset */
+*
+{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Defining font size so I can use rem instead of px*/
+html
+{
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+
+  /* Hiding the navigation menu (Only works if there is nothing absolutely positioned in relation to body) */
+  overflow-x: hidden;
+
+  /* Doesn't work on Safari */
+  /* scroll-behavior: smooth; */
+}
+
+body
+{
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #000;
+
+  /* Hiding the navigation menu (Only works if there is nothing absolutely positioned in relation to body) */
+  overflow-x: hidden;
+}
+
+/*------------------*/
+/* General Reusable Components Section */
+/*------------------*/
+
+/* Headings */
+.main-heading, .second-heading, .third-heading
+{
+  font-weight: 700;
+  letter-spacing: -0.5px;
+
+  color: #fff;
+}
+
+.main-heading
+{
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.second-heading
+{
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+
+  color: #000;
+}
+
+.third-heading
+{
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+
+  color: #000;
+}
+
+.subheading
+{
+  /* making it block because span is an inline element */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color:#530f27;
+
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+/* Buttons */
+
+.btn, .btn:link, .btn:visited
+{
+  /* Button is an inline element. In order for the padding to work, we need to make it an inline-block */
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 0.9rem;
+
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.3s;
+}
+
+.btn--one:link, .btn--one:visited
+{
+  background-color: #530f27;
+  color: #fff;
+}
+
+.btn-margin
+{
+  margin-right: 4.8rem;
+}
+
+.btn--one:hover, .btn--one:active
+{
+  background-color: #320917;
+}
+
+.btn--two:link, .btn--two:visited
+{
+  background-color: #fff;
+  color: #000;
+}
+
+.btn--two:hover, .btn--two:active
+{
+  background-color: #ffe8cc;
+  /* border: 3px solid #fff; */
+
+  /* Trick to add border inside the box */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form
+{
+  background-color: #000;
+  color: #fff;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover
+{
+  background-color: #fff;
+  color: #000;
+}
+
+/* Links */
+
+.link:link, .link:visited
+{
+  display: inline-block;
+  color: #530f27;
+  text-decoration: none;
+  /* Using currentColor instead of typing the same color again */
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover, .link:active
+{
+  color: #320917;
+  /* Using transparent to make the border disappear */
+  border-bottom: 1px solid transparent;
+}
+
+/* Grids */
+
+.container
+{
+  /* 1140px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid
+{
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.4rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+.grid:not(:last-child) 
+{
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols
+{
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols
+{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols
+{
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--center-v
+{
+  align-items: center;
+}
+
+/* Lists */
+
+.list
+{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item
+{
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon
+{
+  width: 3rem;
+  height: 3rem;
+  color: #530f27;
+}
+
+
+/* Focus */
+
+*:focus
+{
+  outline: none;
+  /* outline: 4px dotted #530f27;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgba(83, 15, 39, 0.5);
+}
+
+/* Helper Classes */
+
+.center-text
+{
+  text-align: center;
+}
+
+/* Redefining the strong element. Fromm 700 to 500 */
+strong
+{
+  font-weight: 500;
+}
